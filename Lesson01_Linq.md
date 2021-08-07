@@ -9,6 +9,44 @@
 
 
 # Code
+```
+    class Class2
+    {
+        static void Main(string[] args)
+        {
+            IEnumerable<string> it = new List<string>() { "test", "Jacob", "Sean" , "test", "test", };
+            it.Where(x => x.Length > 2);
+            it.Select(x => x.Length);
+            it.GroupBy(x => x.Length);
+            it.OrderBy(x => x.Length);
+
+            var sum = it.Select(x => x.Length).Sum();
+            Console.WriteLine($"Sum - {sum}");
+
+            foreach (var grp in it.GroupBy(x => x))
+            {
+    
+                Console.WriteLine($"{grp.Key} - {grp.Count()}");
+            }
+        }
+
+        public void Do()
+        {
+            IEnumerable<string> it = new string[10];
+            IEnumerable<string> it2 = new List<string>();
+            IEnumerable<KeyValuePair<string, int>> it3 = new Dictionary<string, int>();
+
+            foreach (var item in it2)
+            {
+
+            }
+        }
+    }
+```
+
+# Other
+
+
 Linq: Pull vs push
 
 IEnumerable: you can iterate through me
