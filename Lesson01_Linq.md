@@ -1,17 +1,17 @@
 
-
-
-Resources
+# Resources
 - Internet access
 - https://github.com/zbma/linq-exercises
 
 
-Objectives
-- All the class should 
+# Objectives
+- Understand common linq functions groupby, sum, select, where
 
 
 
-Home work
+
+
+# Home work
 ```csharp
 using System;
 using System.Collections.Generic;
