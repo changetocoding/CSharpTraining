@@ -12,7 +12,7 @@ Objectives
 
 
 Home work
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,21 +37,35 @@ public class Program
 			new Person("Gail","Dawson", 19 ),
 		};
 		
-		//write linq statement for the people with last name that starts with the letter D
-
-		
-    
-		//write linq statement for all the people who are have the surname Thompson and Baker. Write all the first names to the console
-
-    
+		//1. write linq statement for the people with last name that starts with the letter D
 		//Console.WriteLine("Number of people who's last name starts with the letter D " + people1.Count());
+
+
+    
+		//2. write linq statement for all the people who are have the surname Thompson and Baker. Write all the first names to the console
+
+
+
+		//3. write linq to convert the list of people to a dictionary keyed by first name
+    
 		
-		//Write linq statement for first Person Older Than 40 In Descending Alphabetical Order By First Name
-		//var person2 = people ;
-		
+		// 4. Write linq statement for first Person Older Than 40 In Descending Alphabetical Order By First Name
 		//Console.WriteLine("First Person Older Than 40 in Descending Order by First Name " + person2.ToString());
     
-    // write a linq statement that finds all the people who are part of a family. (aka there is at least one other person with the same surname. This will involve using more than linq
+    //5. write a linq statement that finds all the people who are part of a family. (aka there is at least one other person with the same surname.
+    
+                //6. Write a linq statement that finds which of the following numbers are multiples of 4 or 6
+            List<int> mixedNumbers = new List<int>()
+            {
+                15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+            };
+
+
+            // 7. How much money have we made?
+            List<double> purchases = new List<double>()
+            {
+                2340.29, 745.31, 21.76, 34.03, 4786.45, 879.45, 9442.85, 2454.63, 45.65
+            };
 	
 	public class Person
 	{
