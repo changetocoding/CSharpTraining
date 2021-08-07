@@ -8,7 +8,52 @@
 - Understand common linq functions groupby, sum, select, where
 
 
+# Code
+Linq: Pull vs push
 
+IEnumerable: you can iterate through me
+
+Have to implement 3 things
+
+yield return keyword as simpler way of doing it.
+
+
+
+1. Lists, Arrays ...
+
+2. Iterate
+
+3 for ... /if ... 
+
+4. Ienumberable : list, array, dictionary ... implements this.
+
+5. foreach 
+iteratble.GetEnumerator();
+iteratble.MoveNext();
+var a = iteratble.Current()
+// Call user code within braces {...}
+
+6. Anyone can define thier own Ienumberable
+
+7. Linq - since enumberables are so important. Lets create some helper methods to do common stuff on them. But we work out how to do it efficently and lazily so you dont have to
+
+
+8. Yield Return Keywords
+        public static IEnumerable<int> DavidsEnumerable2YieldImpl()
+        {
+            var i = 0;
+            while (true)
+            {
+                yield return i;
+                i++;
+				
+		if(i>100)
+			yield break;
+            }
+        }
+
+
+9. Lazily executed. Only executes when you need it to
 
 
 # Home work
@@ -36,6 +81,9 @@ public class Program
 			new Person("Eugene","deLauter", 84 ),
 			new Person("Gail","Dawson", 19 ),
 		};
+	
+	
+		//1. write linq display every name ordered alphabetically
 		
 		//1. write linq statement for the people with last name that starts with the letter D
 		//Console.WriteLine("Number of people who's last name starts with the letter D " + people1.Count());
