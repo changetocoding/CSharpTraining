@@ -10,8 +10,13 @@ Sean Ordered linked list how fast
 
 # Binary search
 https://www.geeksforgeeks.org/binary-search/
-https://en.wikipedia.org/wiki/Binary_search_algorithm#/media/File:Binary_Search_Depiction.svg
+![binary-search](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Binary_Search_Depiction.svg/1200px-Binary_Search_Depiction.svg.png)
 
 
 - Only ordered lists/arrays
+
+
+# Generics
+
+
 
