@@ -28,7 +28,6 @@ https://docs.microsoft.com/en-us/dotnet/standard/generics
                 var line = lines[i];
                 if (line.StartsWith("0x"))
                 {
-                    var next = i + 1 < lines.Length ? lines[i + 1] : null;
                     results.Add(Combine(line, next).Replace("Space", "__"));
                 }
             }
@@ -93,4 +92,16 @@ Enumerating twice (Example for. Break on % 4)
 
 # Homework
 1. Make linked List generic
+2. Count bi-grams. Given a string count character pairs. E.g "See the sea" 
+```
+se - 2
+ee - 1
+e_ - 2 (space)
+_t - 1
+th - 1
+_s - 1
+ea - 1
+```
+3. Pnl
+
 
