@@ -3,7 +3,8 @@
 
 # Tree structure
 Sean Ordered linked list how fast
-![](https://en.wikipedia.org/wiki/Tree_(data_structure)#/media/File:Tree_(computer_science).svg)
+
+![Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/1200px-Binary_tree.svg.png)
 
 
 
