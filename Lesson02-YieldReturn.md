@@ -1,13 +1,17 @@
 When linkedList over list?
 
 # Generics
+Compare LinkedList to List<T>. What if wanted to use different type like dateTime
 
-# Generics
 https://docs.microsoft.com/en-us/dotnet/standard/generics
 
 ```cs
-
+public class GenericClass<T>
+{
+    public void Add(T input) { }
+}
 ```
+For when you don't know the type.
 
 # Yield return
 ```cs
