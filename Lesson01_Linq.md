@@ -77,6 +77,7 @@ var a = iteratble.Current()
 
 
 8. Yield Return Keywords
+```csharp
         public static IEnumerable<int> DavidsEnumerable2YieldImpl()
         {
             var i = 0;
@@ -90,6 +91,7 @@ var a = iteratble.Current()
             }
         }
 
+```
 
 9. Lazily executed. Only executes when you need it to
 
