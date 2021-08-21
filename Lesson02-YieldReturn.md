@@ -91,6 +91,114 @@ Example building list to return ,(common pattern)
 Lazy vs eager loading
 Enumerating twice (Example for. Break on % 4)
 
+ 
+# Class Code
+```csharp
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+
+            var result = Transform(DateTime.Now, x => x.Year);
+            var result2 = TransformToT<int>(DateTime.Now, x => x.Year);
+
+            //var days = NextFourDays().ToList();
+            //Console.WriteLine(days.Count());
+            //foreach (var item in days)
+            //{
+            //    Console.WriteLine(item.ToLongDateString());
+            //}
+            var magic = MagicNumbersEnumerable();
+            //Console.WriteLine(magic.ToList().Count());
+            foreach (var item in magic.Take(10))
+            {
+                Console.WriteLine(item);
+            }
+
+            // lazy evaluation
+            // Ienumberable .ToList, ToDictionary .ToArray or in a foreach
+            // Same applies to linq
+        }
+
+        // generic
+        public static int Transform<T>(T data, Func<T, int> transfrom)
+        {
+            return transfrom(data);
+        }
+
+
+        // generic
+        public static T TransformToT<T>(DateTime data, Func<DateTime, T> transfrom)
+        {
+            return transfrom(data);
+        }
+
+        // return numbers not divisible by 2, 3,5,7,11
+        public static IEnumerable<int> MagicNumbers()
+        {
+            var toReturn = new List<int>();
+            int i = 0;
+            while (true)
+            {
+                i++;
+                if(i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
+                {
+                    toReturn.Add(i);
+                }
+            }
+
+            return toReturn;
+        }
+
+        public static IEnumerable<int> MagicNumbersEnumerable()
+        {
+            int i = 0;
+            while (true)
+            {
+                i++;
+                if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
+                {
+                    yield return i;
+                }
+            }
+        }
+
+        public static IEnumerable<int> MagicNumbersForLoop()
+        {
+            var toReturn = new List<int>();
+            for (int i = 0; i < 100; i++)
+            {
+                if(i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
+                {
+                    toReturn.Add(i);
+                }
+            }
+
+            return toReturn;
+        }
+
+        public static IEnumerable<int> MagicNumbersEnumerableForLoop()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
+                {
+                    yield return i;
+                }
+            }
+        }
+
+
+        public static IEnumerable<DateTime> NextFourDays()
+        {
+            yield return DateTime.Today;
+            yield return DateTime.Today.AddDays(1);
+            yield return DateTime.Today.AddDays(2);
+            yield return DateTime.Today.AddDays(3);
+        }
+    }
+```
 
 
 
