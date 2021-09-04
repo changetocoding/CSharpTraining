@@ -61,8 +61,8 @@ OK
 ```
 
 
-The only problem is it on one of those old Nokia brick phones. So there is **some** limitations on the storage
-6. You only allowed to store 4 characters of the name, or the name as an int
-7. You are only allowed to store the telephone number as a long as a string would be too big
+The only problem is it on one of those old Nokia brick phones. So there is **some** limitations on the storage  
+6. You only allowed to store 4 characters of the name, or the name as an int  
+7. You are only allowed to store the telephone number as a long as a string would be too big  
 
-These restrictions might cause a name/number pair to accidentally override another but this is acceptable
+These restrictions might cause a name/number pair to accidentally override another but this is acceptable  
