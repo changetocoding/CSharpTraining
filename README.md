@@ -17,5 +17,4 @@ Course content
 - Entity framework
 
 
-Usefull resources:
-- https://www.benday.com/2019/06/20/code-snippets-for-visual-studio-visual-studio-code-and-visual-studio-for-mac/
+Useful resources:
