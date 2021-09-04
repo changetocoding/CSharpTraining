@@ -2,17 +2,19 @@
 This was funny - http://web.archive.org/web/20160521015258/https://lostechies.com/derickbailey/2009/02/11/solid-development-principles-in-motivational-pictures/
 
 ## Why we test
-
+Confidence
 
 
 ## TDD - Test driven development
+Write tests first code after
 
+1. Write test (failing)
+2. Write the code that passes the test
+3. Refactor
 
 
 ## Triple 'A' - Arrange, Act, Assert
-
-
-## 
+How to write test code
 
 
 # Homework
