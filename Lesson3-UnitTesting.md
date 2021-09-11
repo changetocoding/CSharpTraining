@@ -26,8 +26,15 @@ Thirdly how do you fancy group work
 
 ## Tasks
 ### 1. Write unit tests for (gsa part I) assignment  
+
+
 ### 2. Phonebook part I:  
 You've been tasked to design the phone book on a phone. 
+The only problem is it on one of those old Nokia brick phones. So there is **some** limitations on the storage. You only allowed to store 4 characters of the name, Or if it's easier store the name as an int.
+
+You need to find a way to convert from the full name which can be more than 4 characters into a shorter version (only four characters, or the name string into an int). Hint this is what a dictionary does under the covers.
+
+
 
 You should create a command line phone book application that must:
 1. Have an option to add a name and an *11* digit number. The number may begin with a 0.
@@ -61,8 +68,8 @@ OK
 ```
 
 
-The only problem is it on one of those old Nokia brick phones. So there is **some** limitations on the storage  
-6. You only allowed to store 4 characters of the name, or the name as an int  
+6. You only allowed to store 4 characters of the name, Or if it's easier store the name as an int.
+
 7. You are only allowed to store the telephone number as a long as a string would be too big  
 
 These restrictions might cause a name/number pair to accidentally override another but this is acceptable  
