@@ -13,9 +13,12 @@ Daily Return - Daily P&L divided by capital at the start of the month.
 
 ## Files Provided
 You have been provided with files pnl.csv, capital.csv and properties.csv. These contain source data for the project.
+
 pnl.csv contains P&L data over time for 15 different trading strategies ‘Strategy1’ to ‘Strategy15’. The numbers are US$ P&L on a
 single day for the strategy.
+
 capital.csv contains the US$ amounts invested in each strategy at the beginning of the month.
+
 properties.csv contains the (single) region of each strategy.
 
 ## Task 
