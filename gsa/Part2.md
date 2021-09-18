@@ -1,10 +1,14 @@
 ## Definitions
 In this exercise, the following definitions apply:
+
 (Trading) Strategy – a particular set of rules for managing an investment portfolio, resulting in a profit & loss (P&L) dollar number
 each day. Each strategy trades in exactly one region.
+
 Region – a major region of the world: Europe (EU), America (US) or Asia Pacific (AP).
+
 Capital – Dollar amount invested in a strategy. Each strategy can have different amounts invested, and that amount can change
 over time.
+
 Daily Return - Daily P&L divided by capital at the start of the month.
 
 ## Files Provided
