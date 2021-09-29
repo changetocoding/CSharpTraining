@@ -1,4 +1,7 @@
-# Moneybox hw review
+# Hw review
+- Moneybox
+- Explain Extension methods in next lesson. And static classes
+- Other HW
 
 # Code review David's code and what would have done different
 
