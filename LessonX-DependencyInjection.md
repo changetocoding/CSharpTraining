@@ -169,26 +169,6 @@ Very important.
 Singleton: means only one of it. Ever. That gets reused. Solves singleton problem easily
 Transient: Each time requested creates a new one. Good example is db context -> if singleton and another thread calls save changes in middle of your operation then your operation also gets saved. Not good...
 
-## Castle winsor
-https://www.castleproject.org/projects/windsor/
-
-Serveral DI frameworks. My favourites are .net core's one for web projects (as is baked in) & simple injector (very easy to use). But you use castle windsor.
-
-
-```csharp
-// application starts...
-var container = new WindsorContainer();
-
-// adds and configures all components using WindsorInstallers from executing assembly
-container.Install(FromAssembly.This());
-
-// instantiate and configure root component and all its dependencies and their dependencies and...
-var king = container.Resolve<IKing>();
-king.RuleTheCastle();
-
-// clean up, application exits
-container.Dispose();
-```
 
 
 # Homework
