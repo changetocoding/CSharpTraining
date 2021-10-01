@@ -36,7 +36,7 @@
     }
 ```
 
-# Merging datasets
+# Merging datasets (sean to teach)
 We want to combine the companies and employees. How do you go about doing that? And what return type should we use
 ```cs
 public class Test {
