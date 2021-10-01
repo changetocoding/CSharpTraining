@@ -37,10 +37,10 @@
 ```
 
 # Merging datasets
-We want to combine the companies and employees. How do you go about doing that?
+We want to combine the companies and employees. How do you go about doing that? And what return type should we use
 ```cs
 public class Test {
-    public void Merge(List<Company> companies, List<Employee> employees)
+    public ??? Merge(List<Company> companies, List<Employee> employees)
     {
       
     }
