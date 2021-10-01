@@ -36,7 +36,8 @@
     }
 ```
 
-# Merging datasets (sean to teach)
+# Merging datasets
+Group homework. Explain next week.
 We want to combine the companies and employees. How do you go about doing that? And what return type should we use
 ```cs
 public class Test {
