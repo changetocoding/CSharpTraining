@@ -5,7 +5,6 @@
 
 # Code review David's code and what would have done different
 
-
 # More Linq
 ## To..
 - ToList
@@ -35,6 +34,69 @@
         }
     }
 ```
+
+# Extension Methods
+Used to "extend" existing classes.
+
+
+### Static class
+- All methods must be static
+- Cannot be initalised (can be used for singleton pattern - Only one instance of class allowed. But much better ways of doing singleton with a dependency injection framework)
+- 
+
+
+### Reasons:
+- Library importing so can't change (unless subclass but problems with that)
+- Convience methods don't want to add to a class
+
+
+### How to write:
+- static class
+- static method
+- Uses this key word
+
+
+
+- Get to think about some examples know
+
+```cs 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+
+            var list = new List<Mapping>()
+            {
+                new Mapping("aa", "bb"),
+                new Mapping("ae", "bb"),
+            };
+            Console.WriteLine(string.Join(",", list.All()));
+        }
+    }
+
+    public class Mapping
+    {
+        public Mapping(string source, string destination)
+        {
+            Source = source;
+            Destination = destination;
+        }
+
+        public string Source { get; }
+        public string Destination { get; }
+        public string[] All => new string[] { Source, Destination };
+    }
+
+    public static class MappingExtensions
+    {
+        public static IEnumerable<string> All(this IEnumerable<Mapping> it)
+        {
+            return it.SelectMany(x => x.All).Where(x => x != null).Distinct();
+        }
+    }
+```
+
 
 # Merging datasets
 Group homework. Explain next week.
