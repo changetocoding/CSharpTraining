@@ -45,6 +45,12 @@ Used to "extend" existing classes.
 - 
 
 
+Use: 
+- Singleton
+- Extension Methods
+- Constants variables
+- BAD: global method
+
 ### Reasons:
 - Library importing so can't change (unless subclass but problems with that)
 - Convience methods don't want to add to a class
