@@ -104,30 +104,6 @@ Use:
 ```
 
 
-# Merging datasets
-Group homework. Explain next week.
-We want to combine the companies and employees. How do you go about doing that? And what return type should we use
-```cs
-public class Test {
-    public ??? Merge(List<Company> companies, List<Employee> employees)
-    {
-      
-    }
-}
-
-public class Company
-{
-    public int CompanyId { get; set; }
-    public string Name { get; set; }
-}
-
-public class Employee
-{
-    public int CompanyId { get; set; }
-    public string EmployeeName { get; set; }
-}
-
-```
 
 # Homework
 1. C# pub quiz test. Not allowed to use internet for it
