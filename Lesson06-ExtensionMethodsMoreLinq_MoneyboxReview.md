@@ -125,5 +125,8 @@ public class Employee
 
 # Homework
 1. C# pub quiz test. Not allowed to use internet for it
-2. Improve group project code base
+2. Moneybox
+3. Improve group project code base
+
+
 Also have week off. Should do every 5 weeks. You guys need a break
