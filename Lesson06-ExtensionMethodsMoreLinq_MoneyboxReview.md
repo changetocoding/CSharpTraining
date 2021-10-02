@@ -1,17 +1,47 @@
 # Hw review
 - Moneybox
 - Explain Extension methods in next lesson. And static classes
-- Other HW
-
-# Code review David's code and what would have done different
+- Code review David's code and what would have done different
 
 # More Linq
 ## To..
-- ToList
+- ToList - Forces execution
 - ToDictionary
 - ToLookup
 
-## GroupBy
+## GroupBy, To Lookup
+```cs
+var mappings = new List<Mapping>()
+{
+    new Mapping(".mp4", "Video"),
+    new Mapping(".mp4", "Sound"),
+    new Mapping(".mp3", "Sound"),
+    new Mapping(".pdf", "Document"),
+    new Mapping(".docx", "Document"),
+    new Mapping(".cs", "Code"),
+};
+// To Dictionary 
+var types = mappings
+    .GroupBy(x => x.Source)
+    .Select(x => x.First())
+    .ToDictionary(x => x.Source, y => y.Destination);
+
+
+Dictionary<string, List<Mapping>> destinations = mappings
+    .GroupBy(x => x.Destination)
+    .ToDictionary(x => x.Key, y => y.ToList());
+
+ILookup<string, Mapping> destinationsLookup = mappings.ToLookup(x => x.Destination);
+foreach (var item in destinations)
+{
+    Console.WriteLine($"{item.Key} has types: " + string.Join(",", item.Value));
+}
+foreach (var item in destinationsLookup)
+{
+    Console.WriteLine($"{item.Key} has types: " + string.Join(",", item));
+}
+
+```
 
 ## SelectMany
 ```cs
@@ -41,11 +71,9 @@ Used to "extend" existing classes.
 
 ### Static class
 - All methods must be static
-- Cannot be initalised (can be used for singleton pattern - Only one instance of class allowed. But much better ways of doing singleton with a dependency injection framework)
+- Cannot be initalised 
 - 
-
-
-Use: 
+Used for: 
 - Singleton
 - Extension Methods
 - Constants variables
@@ -53,7 +81,8 @@ Use:
 
 ### Reasons:
 - Library importing so can't change (unless subclass but problems with that)
-- Convience methods don't want to add to a class
+- Convience methods don't want to add to a class (can be used for singleton pattern - Only one instance of class allowed. But much better ways of doing singleton with a dependency injection framework)
+
 
 
 ### How to write:
@@ -61,9 +90,24 @@ Use:
 - static method
 - Uses this key word
 
+```cs
+    public static class MappingExtensions
+    {
+        public static IEnumerable<string> GetMeAll(this IEnumerable<Mapping> it, string additionalItem)
+        {
+            var res = it
+                .Select(x => new[] {x.Source, x.Destination})
+                .SelectMany(x => x)
+                .Distinct()
+                .ToList();
+            res.Add(additionalItem);
+            return res;
+        }
+    }
+```
 
 
-- Get to think about some examples know
+- Get to think about some examples know. Like linq
 
 ```cs 
     class Program
