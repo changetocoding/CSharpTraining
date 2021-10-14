@@ -14,6 +14,44 @@ Another Explaination: https://stackoverflow.com/questions/34680985/what-is-the-d
 - Db operations
 - Controllers
 
+In a signalr hub
+```cs
+public async Task Subscribe(string proposalUniqueId)
+{
+    await Groups.AddToGroupAsync(Context.ConnectionId, proposalUniqueId);
+    await Clients.Group(proposalUniqueId).SendAsync("newSubscribe");
+}
+```
+        
+In a controller
+```cs
+[HttpPost]
+[Route("SupportingDoc")]
+public async Task UploadFile(IFormFile file)
+{
+    await _service.UploadSupportingDoc(file.FileName, file.OpenReadStream());
+}
+```
+
+Using httpClient
+```cs
+public class ItProxy
+{
+        public ItProxy(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
+        }
+
+        public async Task<CompanyProfile> GetInfo(string companyNo)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var uriBuilder = new UriBuilder(_urlCompanyInfo + companyNo);
+            return await client.GetFromJsonAsync<CompanyProfile>(uriBuilder.Uri).ConfigureAwait(false);
+        }
+}
+```
+
+
 
 ## Gottachas
 ### Async all the way concept
