@@ -37,7 +37,7 @@ public async Task Subscribe(string proposalUniqueId)
     await task1; // Only now will execution be paused until this completes
 }
 ```
-By pause execution I mean it will give up control until the task is complete. Other code can execute. This is opposed to for example _Thread.Sleep()_ where nothing else can execute until it finishes running
+By pause execution I mean it will give up control until the task is complete. Other code can execute. This is opposed to for example _Thread.Sleep()_ where nothing else can execute until it finishes
 
     
 ## Examples
