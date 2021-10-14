@@ -14,6 +14,12 @@ Another Explaination: https://stackoverflow.com/questions/34680985/what-is-the-d
 - Db operations
 - Controllers
 
+
+## 
+- Method that contains keyword _async_ and returns _Task_ or _Task<T>_
+- 
+    
+    
 ## Examples
 In a signalr hub
 ```cs
