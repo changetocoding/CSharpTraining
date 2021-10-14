@@ -17,8 +17,28 @@ Another Explaination: https://stackoverflow.com/questions/34680985/what-is-the-d
 
 ## 
 - Method that contains keyword _async_ and returns _Task_ or _Task_<_T>_
-- 
+- It must contain at least one await keyword
+```
+public async Task Subscribe(string proposalUniqueId)
+{
+    await SomeOtherAsyncMethod();
+}
+```
+
+When it comes to an async method it will fire off the request but not pause execution until it gets to an await:
+```
+public async Task Subscribe(string proposalUniqueId)
+{
+    var task1 = FireSomeAsyncMethod();
+    var task2 = FireSomeOtherAsyncMethod();
+    // do some other tasks
     
+    await task2; // Only now will execution be paused until this completes
+    await task1; // Only now will execution be paused until this completes
+}
+```
+By pause execution I mean it will give up control until the task is complete. Other code can execute. This is opposed to for example _Thread.Sleep()_ where nothing else can execute until it finishes running
+
     
 ## Examples
 In a signalr hub
