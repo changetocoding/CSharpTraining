@@ -18,7 +18,7 @@ Another Explaination: https://stackoverflow.com/questions/34680985/what-is-the-d
 ## 
 - Method that contains keyword _async_ and returns _Task_ or _Task_<_T>_
 - It must contain at least one await keyword
-```
+```cs
 public async Task Subscribe(string proposalUniqueId)
 {
     await SomeOtherAsyncMethod();
@@ -26,7 +26,7 @@ public async Task Subscribe(string proposalUniqueId)
 ```
 
 When it comes to an async method it will fire off the request but not pause execution until it gets to an await:
-```
+```cs
 public async Task Subscribe(string proposalUniqueId)
 {
     var task1 = FireSomeAsyncMethod();
