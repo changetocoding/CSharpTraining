@@ -14,6 +14,7 @@ Another Explaination: https://stackoverflow.com/questions/34680985/what-is-the-d
 - Db operations
 - Controllers
 
+## Examples
 In a signalr hub
 ```cs
 public async Task Subscribe(string proposalUniqueId)
