@@ -22,7 +22,7 @@ So much code writing. EF solves it.
 EF6 is the entity framework for .net framework projects (old .net)
 EFCore is for .net core projects. 
 
-They are dev'd in parallel but there are big breaking changes between them. We will focus on EF6 (what is used at ETP)
+They are dev'd in parallel but there are big breaking changes between them. We will focus on EFCore
 
 
 You already know alot of this so please explain:
@@ -59,7 +59,6 @@ using(var it = new MyResource()){
 
 
 # HW.
-Get the database that Mani uses for the interview. Create a console app that works with the database (inserting new records from the user, querying the database etc...)
 
 ## Merging datasets  practise of extension methods too
 Group homework. Explain next week.
@@ -88,16 +87,17 @@ public class Employee
 
 ```
 
-# Sql setup
+## DB 
+- Create a console app that works with the database (inserting new records from the user, querying the database etc...)
+
+### Sql setup
 1. Download Sql server mgt. studio: https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15
 2. Download sql server express localdb: https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver15
 3. Download database and restore it to localdb instance: https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
-4. Create new project: Make sure .net framework console app. Add Entityframework nuget package (make sure entity framework 6 one)
+4. Create new project: Make sure .net core console app. Add Entityframework nuget package (make sure entity framework core one)
+5. Crack on
 
 In sql server mgt server was [ComputerName]\SQLEXPRESS
 My connection string was "Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;"
 
 
-
-Create model from database:
-https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/workflows/existing-database
