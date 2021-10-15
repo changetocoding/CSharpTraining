@@ -21,41 +21,21 @@ Find them annoying (don't mean with Lore). Leads to problems with lazy loading
 
 
 
-### Lazy loading
-https://entityframework.net/lazy-loading
-When access property it will load the entities for that property. Problem when the context has been disposed...
+### Loading related properties
+- Lazy loading - When accessed will try to load it.
+- Eager Loading using ".Includes()"
+- Personally prefer no loading (https://docs.microsoft.com/en-us/ef/core/querying/related-data/eager)
 
-Personally prefer disabling lazy loading and using ".Includes()" instead (Called [Eager Loading](https://entityframework.net/eager-loading))
+Also with entity framework occassionally tries to do really dumb queries with include so beware of that
 
-Also with entity framework occassionally tries to do really dumb queries. Here is an example:
-https://entityframework.net/when-to-use-include
-
-With lazy loading EF will attempt to run an additional query for each row. With Includes it does a join and only one query 
 
 ### Directly executing a query on db
 
-# Common EF 6 questions on stack overflow
+# Some tips from microsoft
+- https://docs.microsoft.com/en-us/ef/core/performance/efficient-querying
 
 ### Viewing query entity framework executes
-https://entityframework.net/view-generated-sql
-
-Log SQL to the Console.
-```csharp
-using (var context = new EntityContext())
-{
-    context.Database.Log = Console.Write; 
-    // query here ....  
-}
-```
-
-Log SQL to Visual Studio Output panel.
-```csharp
-using (var context = new EntityContext())
-{
-    context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s); 
-    // query here ....  
-}
-```
+https://docs.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging
 
 
 ### Delete all rows in table
@@ -70,16 +50,15 @@ using (var context = new EntityContext())
 ```
 Do not call .ToList() in .Where() as will fetch the data and just want it executed against the database
 
-If deleting all rows above is too slow if more than 1000 rows This is faster:
+If deleting all rows above is too slow if more than 1000 rows This is faster (obviously deletes all data in table):
 ```
 using (var context = new EntityContext())
 {
     context.Database.ExecuteSqlCommand("TRUNCATE TABLE [TableName]");
     context.SaveChanges();
 }
-
 ```
-Can also instead execute a "Delete ..." command
+Can also instead execute a "Delete ..." command. 
 
 ### Unit testing
 Unit tests should not connect to your database. End of.
