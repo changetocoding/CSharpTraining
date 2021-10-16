@@ -165,7 +165,7 @@ Part 1 - Quiz. Can't use internet for these questions. Or visual studio
 10. Why are strings immutable
 11. What is diff beyween GetType(), is and typeof()
 12. How is a dictionary implemented
-13. What is the Equals/hashcode contract. Aka why are the equals() and hashcode() important on every method and important. 
+13. What is the Equals/hashcode contract. Aka why are the equals() and hashcode() important on every class and important in dictionary. 
 14. What happens when there is a collision in a dictionary
 15. What is a constructor. Write code for an example
 16. What is the difference between method overloading and overriding. Give an example of each 
