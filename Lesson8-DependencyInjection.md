@@ -170,7 +170,69 @@ Singleton: means only one of it. Ever. That gets reused. Solves singleton proble
 Transient: Each time requested creates a new one. Good example is db context -> if singleton and another thread calls save changes in middle of your operation then your   operation also gets saved. Not good...  
 Scoped
 
+# Class code
+```cs
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
 
+            // Constructor injection
+            var myDependency = new MyDependency();
+            var myClass = new MyClass(myDependency);
+        }
+    }
+
+    class MyClass
+    {
+        private IMyDependency _myDependency;
+
+        public MyClass(IMyDependency myDependency)
+        {
+            _myDependency = myDependency;  // newing up
+        }
+
+        public void Do3(MyDependency otherway)
+        {
+            // 1. only alive for this method: construct in method
+            // 2. Should the control be at a higher level: i.e we are a private method
+            // 3. Runtime (mostly data types: value determined when running) vs compile time constant: Contructor injector
+            // 4. Reused by multiple methods
+            // 5. Testing: Do I need to mock it out
+
+           // var it = new MyDependency();
+           _myDependency.Execute();
+        }
+
+        public void Do()
+        {
+            _myDependency.Execute();
+        }
+
+        public void Do2()
+        {
+            _myDependency.Execute();
+        }
+    }
+
+
+    interface IMyDependency
+    {
+        void Execute();
+    }
+
+    class MyDependency:IMyDependency
+    {
+        public virtual void Execute()
+        {}
+    }
+    class MyDependency2 : MyDependency
+    {
+        public override void Execute()
+        {}
+    }
+```
 
 # Homework
 Follow this tutorial: https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage   
