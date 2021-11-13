@@ -173,5 +173,5 @@ Scoped
 
 
 # Homework
-Follow this tutorial: https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage
+Follow this tutorial: https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage   
 Add the factory pattern to an existing project
