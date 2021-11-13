@@ -102,6 +102,7 @@ static void Main()
     
 var it = Class1Factory.Create();
 ```
+### Builder pattern
 Builder pattern. Wont go into it but see it in .net core alot:
 ```csharp
 var server = Host
@@ -114,6 +115,54 @@ var server = Host
   .Build();
   
 server.Run();
+```
+
+An example of how you write the builder pattern (for example this will be useful for generating test cases)
+```
+    class DateBuilder
+    {
+        private DateTime _date;
+
+        public DateBuilder()
+        {
+            _date = DateTime.Today;
+        }
+
+        // each builder method returns 'this'
+        public DateBuilder Weekend()
+        {
+            while (_date.DayOfWeek != DayOfWeek.Saturday)
+            {
+                _date = _date.AddDays(1);
+            }
+            return this;
+        }
+
+        public DateBuilder WithDate(int day, int month, int year)
+        {
+            _date = new DateTime(year, month, day);
+            return this;
+        }
+
+        public DateBuilder WithYear(int year)
+        {
+            _date = new DateTime(year, _date.Month, _date.Day);
+            return this;
+        }
+        
+        // The build method returns a constructed object
+        public DateTime Build()
+        {
+            return _date; // normally would return a new object (otherwise next time build called, sharing same object = unexpected things happen) 
+            // but as DateTime is immutable no need to do that
+        }
+    }
+
+// usage
+var date = new DateBuilder()
+    .WithYear(2022)
+    .Weekend()
+    .Build();
 ```
 
 ## Singletons
