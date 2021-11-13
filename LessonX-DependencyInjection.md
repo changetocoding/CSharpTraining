@@ -166,8 +166,9 @@ public class FirstController{
 
 ## Lifestyles
 Very important.
-Singleton: means only one of it. Ever. That gets reused. Solves singleton problem easily
-Transient: Each time requested creates a new one. Good example is db context -> if singleton and another thread calls save changes in middle of your operation then your operation also gets saved. Not good...
+Singleton: means only one of it. Ever. That gets reused. Solves singleton problem easily  
+Transient: Each time requested creates a new one. Good example is db context -> if singleton and another thread calls save changes in middle of your operation then your   operation also gets saved. Not good...  
+Scoped
 
 
 
