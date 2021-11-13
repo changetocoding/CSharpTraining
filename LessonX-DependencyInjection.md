@@ -173,5 +173,5 @@ Scoped
 
 
 # Homework
-
-Pick one of the projects we have done and add dependency injection to it.
+Follow this tutorial: https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage
+Add the factory pattern to an existing project
