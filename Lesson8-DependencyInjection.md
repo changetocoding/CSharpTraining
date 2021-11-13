@@ -118,7 +118,7 @@ server.Run();
 ```
 
 An example of how you write the builder pattern (for example this will be useful for generating test cases)
-```
+```cs
     class DateBuilder
     {
         private DateTime _date;
