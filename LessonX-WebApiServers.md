@@ -132,7 +132,7 @@ axios.post('/api/search/update', { day: "Today", weather: "Sunny"})
 ```
 
 # Homework
-(Optional) Watch this for some gotcha's for Js [link](https://www.youtube.com/watch?v=hQVTIJBZook). It is from 2009 so it is a bit outdated
+
 
 
 
