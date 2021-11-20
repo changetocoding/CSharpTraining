@@ -132,7 +132,8 @@ axios.post('/api/search/update', { day: "Today", weather: "Sunny"})
 ```
 
 # Homework
-
+- Full GSA assignment. Will email
+- Factory pattern on an existing project
 
 
 
