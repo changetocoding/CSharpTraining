@@ -64,6 +64,79 @@ Parallel.ForEach(files, fi =>
 
 ```
 
+# Lesson Code
+```
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //            Thread t3 = new Thread(() => Foo(1, "Thread"));
+            //            t3.Start();
+            //
+            //            Task.Run(() => Foo(2, "Task.Run"));
+            //
+            //            Task task = Task.Factory.StartNew(() =>
+            //            {
+            //                for (int i = 0; i < 1000; i++)
+            //                {
+            //                    Console.WriteLine("Test");
+            //                }
+            //            });
+            //
+            //            // Blocks until task completes
+            //            task.Wait();
+            //
+            //            // Returning a value
+            //            Task<int> task1 = Task<int>.Factory.StartNew(() => 1);
+            //            int res = task1.Result;
+
+
+            // Parallel.Invoke(() => Foo(2, "Test1"), () => Foo(20, "OtherTest"));
+            String[] files = Directory.GetFiles("C:\\Dev\\Biz\\Insurtech\\Erste\\Erste\\ClientApp\\node_modules", "", SearchOption.AllDirectories);
+
+            var timerSingle = new Stopwatch();
+            timerSingle.Start();
+            long totalSizeSingle = 0;
+            foreach (var fileName in files)
+            {
+                FileInfo fi = new FileInfo(fileName);
+                long size = fi.Length;
+                Console.WriteLine($"{fileName}, {size}");
+                totalSizeSingle += size;
+            }
+            timerSingle.Stop();
+
+
+            var timer = new Stopwatch();
+            timer.Start();
+            long totalSize = 0;
+
+            // Foreach
+            Parallel.ForEach(files, fileName =>
+            {
+                FileInfo fi = new FileInfo(fileName);
+                long size = fi.Length;
+                Console.WriteLine($"{fileName}, {size}");
+                Interlocked.Add(ref totalSize, size);
+            });
+
+            timer.Stop();
+
+            Console.WriteLine($"Total single Thread:  {totalSizeSingle}. In time {timerSingle.Elapsed}");
+            Console.WriteLine($"Total was:  {totalSize}. In time {timer.Elapsed}");
+        }
+
+
+        public static void Foo(int port, string path)
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.WriteLine(path + port);
+            }
+        }
+    }
+```
+
 # Homework
 ### Duplicates.
 
