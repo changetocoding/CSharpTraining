@@ -65,7 +65,7 @@ Parallel.ForEach(files, fi =>
 ```
 
 # Lesson Code
-```
+```cs
     class Program
     {
         static void Main(string[] args)
