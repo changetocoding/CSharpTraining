@@ -33,10 +33,78 @@ Some limitations:
 
 
 ## Properties
+I come from java. Java doesn't have properties so to do encapsulation you have to do this:
 ```cs
-
-
+class MyClass
+{
+    private int _myProp;
+    public void SetMyProp(int value)
+    {
+        this._myProp = value;
+    }
+    public int GetMyProp()
+    {
+        return this._myProp;
+    }
+}
 ```
+Quite a bit of boilerplate code for something you do alot. So c# simplified the syntax. This is what we call properties
+```cs
+class MyClass
+{
+    public int MyProp { get; set; }
+}
+```
+You can add a backing field to any property (which is more verbose but has some uses like here when we always store it as half its real size)
+```cs
+class MyClass
+{
+    private int _myProp;
+
+    public int MyProp
+    {
+        get
+        {
+            return _myProp * 2;
+        }
+        set
+        {
+            _myProp = value/2;
+        }
+    }
+}
+```
+You can make properties immutable by having a get only property. You can also have access modifiers on a property
+```cs
+var myClass = new MyImmutableClass(1);
+myClass.Value = 10; // can't do this
+
+class MyImmutableClass
+{
+    public int Value { get; }
+
+    public MyClass(int value)
+    {
+        Value = value;
+    }
+}
+
+// this property can only be set within its class but accessed publicly 
+public int Value { get; private set; }
+```
+
+
+### Pop quiz: What is the difference
+```cs
+class MyClass
+{
+    public int WhatIsThis;
+
+    public int WhatIsThisToo { get; set; }
+}
+```
+
+
 
 ## enums
 Think of them as what you want to do when you have more options than true or false
@@ -64,6 +132,33 @@ switch (type)
 ```
 
 # Quick Review: Recursion
+Pretty simple. Function that calls itself
+
+This is when a function calls itself.
+
+```cs
+public int RecursiveFunction(int no)
+{
+    if (no == 0)
+    {
+        return 0;
+    }
+    return RecursiveFunction(no/2);
+}
+```
+
+  
+Recursion happens a lot languages. An example:
+> Every human's mother and father is a human.
+
+So lets rewrite it as a function:
+
+IsHuman(person) = IsHuman(person.Father) && IsHuman(person.Mother)
+
+So now I'm like is John a human?
+Well to know that I need to know if Johns parents are human. To know that I need to know if thier parents (john's grandparents) are human.
+
+
 Good you are comfortable with it but you are overusing it. I call it the newbie trick - "You learn something new and start overusing it because it is soooo awesome" (tbf I do it too when I learn new things :sweat_smile:)
 
 Should always prefer For/While loops over Recursion. Unless:
