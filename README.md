@@ -18,3 +18,6 @@ Course content
 
 
 Useful resources:
+
+
+Null coalsing operator
