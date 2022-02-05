@@ -37,3 +37,18 @@ public void MethodName(int? number)
     }
 }
 ```
+
+# Big O
+https://en.wikipedia.org/wiki/Big_O_notation
+
+It's a way of describing how fast an algorithm is and falls into one of several categories:
+
+| O(1)          | O(nlogn)      | O(n)            | O(nlogn)| O(n^2)      |
+| ------------- |:-------------:| --------------- | --------| ------------|
+| dict[key]     | Searching     | Linked List Get | Ordering| 2 for loops |
+| Array  Get/Add| Trees         | For loop        |         |             |
+| List Add (Amortised)|         |                 |         |             |
+
+
+![Cheatsheet](https://miro.medium.com/max/1400/1*wv3W3jYq7EHCDiwYVaCXrA.png)
+![Performance](https://user-images.githubusercontent.com/63453969/152640502-a92271a4-20f9-4aec-b36b-6ca7b738893f.png)
