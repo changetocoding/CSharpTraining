@@ -43,7 +43,7 @@ https://en.wikipedia.org/wiki/Big_O_notation
 
 It's a way of describing how fast an algorithm is and falls into one of several categories:
 
-| O(1)          | O(nlogn)      | O(n)            | O(nlogn)| O(n^2)      |
+| O(1) (Constant time) | O(nlogn)      | O(n)            | O(nlogn)| O(n^2)      |
 | ------------- |:-------------:| --------------- | --------| ------------|
 | dict[key]     | Searching     | Linked List Get | Ordering| 2 for loops |
 | Array  Get/Add| Trees         | For loop        |         |             |
