@@ -4,6 +4,7 @@ Course content
 
 - Fundamentals - data structures (list, array, dicts) 
 - OO
+- SOLID
 - linq
 - testing and mocking
 - Phonebook ex
