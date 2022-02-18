@@ -1,5 +1,7 @@
 # Exception Handling
 https://docs.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions
+![image](https://user-images.githubusercontent.com/63453969/154752464-dbb1c117-557f-4163-ab07-7795db47631c.png)
+
 
 ## The basics
 - Try catch blocks
@@ -106,39 +108,11 @@ catch (Exception)
 }
 ```
 5. TryXXX pattern. e.g. 'dict.TryGetValue[key];' or 'it.FirstOrDefault()'. Sometimes you should provide a version of the method that doesn't throw so the user of your method can make the choice if they care about the error.
-6. Where should this be handled. An example is worked on a application that took 10 seconds to calculate data. If the calculation failed in one of the child methods most of the time we wanted it to propogate all the way to the controller and return an error http response. All or nothing.
-7. All or nothing: Database transaction style
-8. 
-
-
-## Creating your own exception class
-Must extend Exception()
-```cs
-/// <summary>
-/// Exception to be thrown when number of returned transactions exceeds the hard limit
-/// </summary>
-public class TransactionsLimitExceededException : Exception
-{
-    public TransactionsLimitExceededException(string message) : base(message)
-    {
-    }
-}
-```
+6. Where should this be handled: An example is I worked on a application that took 10 seconds to calculate data. If the calculation failed in one of the child methods, most of the time we wanted it to propogate all the way to the controller and return an error http response. All or nothing.
+7. All or nothing: Database transaction style: Everything works and you can 'commit'/'save' or you roll back your changes
 
 ## Common pitfalls
 ### Suppressing exceptions
-Don't do this. You are suppressing an exception. 
-```cs
-try
-{
-   it.myPotentiallyThrowsMethod();
-}
-catch ()
-{
-   // suppress
-}
-```
-At the very least you should log the exception! And if you are suppressing an error then you probably shouldn't be throwing an exception. (Maybe return back a falsy value instead). 
 ```cs
 try
 {
@@ -146,9 +120,15 @@ try
 }
 catch ()
 {
-   // suppress - File is probably been read. Well we'll retry again in 2 minutes
+   // suppress - File is probably been read. We'll retry again in 2 minutes
 }
 ```
+
+Don't do this. You are suppressing an exception. 
+
+
+At the very least you should log the exception! And if you are suppressing an error then you probably shouldn't be throwing an exception. (Maybe return back a falsy value instead). 'If a tree falls in a forest and no one is there to hear it, did it really happen' Well 'If an exception gets suppressed, did it really happen?'
+
 ### Throw and recatch
 https://github.com/sawonorin/moneybox-withdrawal-master/blob/master/src/Moneybox.App/Features/TransferMoney.cs
 ```cs
