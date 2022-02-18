@@ -74,7 +74,7 @@ You should always apply the principle of all or nothing that is used in database
 ### In more detail:
 
 1. Can I handle it within this method? Then handle it! Maybe you can retry what you wanted to do.
-2. Does it matter if this fails? Unfortunately most of the time it does otherwise why else would you be calling the code... But examples are we store analytics. It doesn't matter if the analytics fail to save as it only affects us the developers so:
+2. Does it matter if this fails? Unfortunately most of the time it does otherwise why else would you be calling the code... But an example is writing analytics to db. It doesn't matter if the analytics fail to save as it only affects us the developers so:
 ```cs
 public void SaveAnalyticEvent(Analytic analyticEvent)
 {
