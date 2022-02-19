@@ -110,6 +110,7 @@ catch (Exception)
 5. TryXXX pattern. e.g. 'dict.TryGetValue[key];' or 'it.FirstOrDefault()'. Sometimes you should provide a version of the method that doesn't throw so the user of your method can make the choice if they care about the error.
 6. Where should this be handled: An example is I worked on a application that took 10 seconds to calculate data. If the calculation failed in one of the child methods, most of the time we wanted it to propogate all the way to the controller and return an error http response. All or nothing.
 7. All or nothing: Database transaction style: Everything works and you can 'commit'/'save' or you roll back your changes
+8. You should try to handle exception as soon as you can. Rather than later down the line
 
 ## Common pitfalls
 ### Suppressing exceptions
