@@ -11,5 +11,9 @@ Do from quickstart guide
 3. Explain Extension methods in next lesson. And static classes
 
 
-# Answer 
+# Part1: MoneyBox Ex
+Send via email
+
+# Part2: Code Review assignment
+Once part one is complete  
 https://github.com/search?l=C%23&q=moneybox&type=Repositories
