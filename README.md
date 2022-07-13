@@ -26,3 +26,5 @@ Null coalsing operator
 To revise
 - Design patterns
 - Exception handling strategies
+
+# New content
