@@ -23,7 +23,7 @@ Directory.GetFiles(path); // Returns a list of FileInfo
 Path.Combine(dir, filename);
 
 var file = new FileInfo(path);
-if(file.Exists())
+if(file.Exists)
 {
 	file.Rename(...)
 }
