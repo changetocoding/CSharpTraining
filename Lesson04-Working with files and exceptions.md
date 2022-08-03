@@ -14,11 +14,11 @@ public class MyClass : IDisposable{}
 # Files
 
 ## Locating/ Working with
-'\\' is an escape character. But using `@` before a string means `\` is ignored as an escape character
+`\` is an escape character. 
 ```csharp
 Console.WriteLine("Hello World!\nCreates a new line\tTab");
 ```
-
+But using `@` before a string means `\` is ignored as an escape character
 ```csharp
 var files = Directory.GetFiles("C:\\Dev\\temp");
 files = Directory.GetFiles(@"C:\Dev\temp");
