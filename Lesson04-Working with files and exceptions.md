@@ -21,6 +21,7 @@ Console.WriteLine("Hello World!\nCreates a new line\tTab");
 But using `@` before a string means `\` is ignored as an escape character
 ```csharp
 var files = Directory.GetFiles("C:\\Dev\\temp");
+// Equivalent to:
 files = Directory.GetFiles(@"C:\Dev\temp");
 
 
@@ -40,7 +41,7 @@ File.Exists(path)
 
 
 ## Reading
-Initially stream reader  
+Initially stream reader (Old way of doing it and complex. Only including as you still see especially in older code/examples). Streams is a pattern. 
 ```csharp
 StringBuilder sb = new StringBuilder();
 using (StreamReader sr = new StreamReader("lastupdate.txt")) 
@@ -53,19 +54,35 @@ using (StreamReader sr = new StreamReader("lastupdate.txt"))
 textbox.Text = sb.Tostring();
 ```
 
-Streams is a pattern. 
-
-
+### New better way of doing things
 Then new File api: simpler. No need to remember to close stream
 ```csharp
 var lines = File.ReadAllLines(_path);
 foreach (var line in lines)
 {
-	// Here I convert into my own class
-	yield return MyClass.Parse(line);   // Using  a Parse method as C# way of converting text to object. Could have just done through constructor but constructors throwing exceptions is a bit contraverious. I'm for it (You should not be allowed to create a class in a bad state) but some ppl are against it.
+	Console.WriteLine(line);
 }
 
 ```
+### Reading a csv file
+```cs
+string[] lines = File.ReadAllLines(path);
+var contacts = new List<Contact>();
+foreach (var line in lines)
+{
+    var spilt = line.Split(",");
+    var contact = new Contact() {Name = spilt[0], Number = long.Parse(spilt[1])};
+    contacts.Add(contact);
+}
+```
+```contact.cs
+    public class Contact
+    {
+        public string Name { get; set; }
+        public long Number { get; set; }
+    }
+```
+
 
 
 ## Writing
