@@ -97,6 +97,16 @@ File.AppendAllText(path, text + Environment.NewLine)
 
 ```
 
+## Getting working directory
+These two are useful for getting the directory the code is running in or the current codebase directory
+```csharp
+// Codebase
+var applicationDirectory = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath;
+var fileLoc = applicationDirectory + @"\Resources\properties.csv";
+
+// Directory running in
+var path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "TestData", "Output"));
+```
 
 ## CSVs
 Will not cover but useful to know there is a popular Csv helper library for dealing with csv files: https://joshclose.github.io/CsvHelper/
