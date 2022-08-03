@@ -22,9 +22,15 @@ So much code writing. EF solves it.
 EF6 is the entity framework for .net framework projects (old .net)
 EFCore is for .net core projects. 
 
-They are dev'd in parallel but there are big breaking changes between them. We will focus on EFCore
+They are dev'd in parallel but there are big breaking changes between them. We will focus on EFCore.
+
+From .net6 forward you will need to use EFcore
+## Project setup
+Create a db project with these libraries:
+![image](https://user-images.githubusercontent.com/63453969/182610077-fae29d0d-08ad-4a4e-9277-f912de292d58.png)
 
 
+## Pop quiz
 You already know alot of this so please explain:
 1. Connection Strings 
 2. Db context
@@ -32,12 +38,34 @@ You already know alot of this so please explain:
 4. When does query get executed
 
 ### Connection strings.
-```csharp
-<connectionStrings>
-  <add name="cerviondemoEntities" connectionString="metadata=res://*/DatabaseModel.cervionEDM.csdl|res://*/DatabaseModel.cervionEDM.ssdl|res://*/DatabaseModel.cervionEDM.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DEVBOX;initial catalog=cerviondemo;user id=sa;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
-</connectionStrings>
+If you used the default setup for your local db your connection string will be
 ```
+Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Initial Catalog=[Name of db you created];App=EntityFramework
+```
+See this to understand why - https://docs.microsoft.com/en-us/previous-versions/aspnet/jj653752(v=vs.110)?redirectedfrom=MSDN
 This is your connection to your database
+
+
+### Scaffolding DB:
+You can automatically generate the c# code for a db table using scaffolding
+
+https://docs.microsoft.com/en-us/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli
+
+1. Set db project SwiftProposal.Data as startup project
+2. Open up Package Manager Console (Tools > nugget package manager > package manager console)
+3. Set default project in the package manager window to SwiftProposal.Data 
+4. Run below
+```
+Scaffold-DbContext "data source=[Your db ConnectionString]" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Scaffolded
+```
+
+Replace with your db connection string. E.g.
+```
+Scaffold-DbContext "data source=(LocalDB)\ProjectsV13;initial catalog=Calyspo;MultipleActiveResultSets=True;App=EntityFramework" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Scaffolded
+```
+
+5. I normally copy relevant bits from the Scaffolded folder
+6. You can specify specific tables using the -table parameter
 
 ### Db context
 Db context is your api for talking to the database
@@ -60,35 +88,8 @@ using(var it = new MyResource()){
 
 # HW.
 
-## Merging datasets  practise of extension methods too
-Group homework. Explain next week.
-We want to combine the companies and employees. How do you go about doing that? And what return type should we use
-
-Then write as an extension method
-```cs
-public class Test {
-    public ??? Merge(List<Company> companies, List<Employee> employees)
-    {
-      
-    }
-}
-
-public class Company
-{
-    public int CompanyId { get; set; }
-    public string Name { get; set; }
-}
-
-public class Employee
-{
-    public int CompanyId { get; set; }
-    public string EmployeeName { get; set; }
-}
-
-```
-
 ## DB 
-- Create a console app that works with the database (inserting new records from the user, querying the database etc...)
+- Update Pnl app to work with db
 
 ### Sql setup
 1. Download Sql server mgt. studio: https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15
@@ -99,5 +100,3 @@ public class Employee
 
 In sql server mgt server was [ComputerName]\SQLEXPRESS
 My connection string was "Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;"
-
-
