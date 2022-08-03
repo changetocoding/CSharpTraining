@@ -13,6 +13,11 @@ Unknown...
 
 
 # Course materials
+### How to install
+https://scribe.rip/devops-with-valentine/2021-how-to-install-git-on-windows-10-step-by-step-guide-1c9db500e734
+- Add the git bash to command
+- Default text editor: Use notepad++ or VScode instead of Vim
+
 ### GIT BASH:
 
 ### CLONE
@@ -27,7 +32,7 @@ After cloning, navigate into the folder to perform operations by typing cd clone
 
 git add "filename" (this instructs git to start keeping track of the file to be uploaded or updated)
 
-git commit -m "filename" (this commits the file to be uploaded or updated)
+git commit -m "a message for the commit" (this commits the file to be uploaded or updated)
 
 git push
 
@@ -38,11 +43,30 @@ git push
 
 
 ### TO GET UP-TO-DATE FILES FROM THE REPOSITORY
-
+```
 git pull
+```
 
+## Branches
+### To create a branch
+This will create a branch from the current branch so normally you want to do this on main
+```
+git checkout -b test-branch
+```
+### To switch to a branch
+```
+git checkout main
+```
+### To merge from main onto a feature branch you are working on
+We first update main then we merge main into our feature branch
+```
+git checkout main
+git pull
+git checkout feature-branch
+git merge main
+```
 
-## GIT & VS CODE
+## Using GIT in VS CODE
 
 HOW TO PUSH A PROJECT FROM VSCODE TO GITHUB (TO LINK A REPOSITORY WITH VSCODE)
 - Create a new repository for your project
