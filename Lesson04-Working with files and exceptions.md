@@ -11,13 +11,19 @@ Main use cases:
 public class MyClass : IDisposable{}
 ```
 
-How to implement I disposable [here](http://dotnetmentors.com/c-sharp/implementing-finalize-and-dispose-of-net-framework.aspx)
-
 # Files
 
 ## Locating/ Working with
+'\\' is an escape character. But using `@` before a string means `\` is ignored as an escape character
+```csharp
+Console.WriteLine("Hello World!\nCreates a new line\tTab");
+```
 
 ```csharp
+var files = Directory.GetFiles("C:\\Dev\\temp");
+files = Directory.GetFiles(@"C:\Dev\temp");
+
+
 Directory.GetFiles(path); // Returns a list of FileInfo
 
 Path.Combine(dir, filename);
@@ -25,12 +31,13 @@ Path.Combine(dir, filename);
 var file = new FileInfo(path);
 if(file.Exists)
 {
-	file.Rename(...)
+	file.Delete()
 }
 
 // or can use this
 File.Exists(path)
 ```
+
 
 ## Reading
 Initially stream reader  
