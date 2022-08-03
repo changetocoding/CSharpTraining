@@ -1,6 +1,22 @@
-### Querying
-.Where()  
-.Any()  
+# Entity framework 2
+
+### Adding a record and Querying
+```csharp
+            // Adding a record
+            using (var dbContext = new GsaContext())
+            {
+                var newuser = new User() {Email = "Test", Name = "Name"};
+                dbContext.Users.Add(newuser);
+                dbContext.SaveChanges();
+            }
+
+
+            // Querying
+            using (var dbContext = new GsaContext())
+            {
+                var users = dbContext.Users.Where(x => x.Name == "Tom").ToList();
+            }
+```
 
 ### Updating a record
 ```csharp
@@ -19,17 +35,10 @@ using (var db = new MyContextDB())
 Find them annoying (don't mean with Lore). Leads to problems with lazy loading
 
 
-
-
-### Loading related properties
-- Lazy loading - When accessed will try to load it.
-- Eager Loading using ".Includes()"
-- Personally prefer no loading (https://docs.microsoft.com/en-us/ef/core/querying/related-data/eager)
-
-Also with entity framework occassionally tries to do really dumb queries with include so beware of that
-
-
 ### Directly executing a query on db
+```cs
+// See delete all rows in table
+```
 
 # Some tips from microsoft
 - https://docs.microsoft.com/en-us/ef/core/performance/efficient-querying
