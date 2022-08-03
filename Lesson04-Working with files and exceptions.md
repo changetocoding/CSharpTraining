@@ -87,9 +87,17 @@ foreach (var line in lines)
 
 ## Writing
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-write-to-a-text-file
+Easy way
+```cs 
+// WriteAllLines creates a file, writes a collection of strings to the file,
+// and then closes the file.  You do NOT need to call Flush() or Close().
+System.IO.File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
 
+// use write all text if just one string with line breaks in it
+File.AppendAllText(path, text + Environment.NewLine)
+```
+More complex way
 ```csharp
-
 // Example #3: Write only some strings in an array to a file.
 // The using statement automatically flushes AND CLOSES the stream and calls
 // IDisposable.Dispose on the stream object.
@@ -106,18 +114,6 @@ using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Publi
 		}
 	}
 }
-
-
-
-// WriteAllLines creates a file, writes a collection of strings to the file,
-// and then closes the file.  You do NOT need to call Flush() or Close().
-System.IO.File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
-
-// use write all text if just one string with line breaks in it
-
-
-File.AppendAllText(path, text + Environment.NewLine)
-
 
 ```
 
