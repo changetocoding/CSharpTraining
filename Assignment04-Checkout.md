@@ -5,6 +5,9 @@ Your boss asks you to build a checkout counter (such as in a super market).
 We sell products with the following prices:  
 A:50, B:30, C:20, D:5
 
+### Note:
+For this task submit a project or class for each Task. This will allow us to see the progression as you proceed through the task
+
 ## Task 1
 The checkout must process a string of characters like "ACDAB" and calculate the total cost of the items (in this case 155 = (50+20+5+50+30)
 
@@ -48,7 +51,10 @@ D - price:5, weight: 1, type: Groceries
 E - price:8, weight: 1.2, type: Groceries   
 F - price:25, weight: 1, type: Alcohol   
 
-And output the categories and total weight of the products
+And output the categories and total weight of the products. 
+Note: Only implement the discounts below. Do not implement the 10% off discount:
+-	Buy one get one free on B
+-	3 for the price of 2 on D
 
 Example input output
 ```
