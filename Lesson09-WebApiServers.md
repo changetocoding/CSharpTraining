@@ -1,7 +1,16 @@
 # Microsoft tutorial
-https://scribe.bus-hit.me/net-core/build-a-restful-web-api-with-asp-net-core-6-30747197e229
+Best guide: https://scribe.bus-hit.me/net-core/build-a-restful-web-api-with-asp-net-core-6-30747197e229  
+(Skip step creating database with migrations)  
+Microsoft reference:
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio
 
-Skip step creating database with migrations
+# To cover
+Use above guide and walk through
+- Creating a Web API project
+- Using swagger to test the API
+- Connecting to a database and updating database entries
+- Dependency injection
+- If time allows fetch api
 
 # Api controllers
 ```csharp
@@ -137,8 +146,3 @@ axios.post('/api/search/update', { day: "Today", weather: "Sunny"})
 ```
 
 # Homework
-- Full GSA assignment. Will email
-- Factory pattern on an existing project
-
-
-
