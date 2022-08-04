@@ -19,6 +19,8 @@ https://scribe.rip/devops-with-valentine/2021-how-to-install-git-on-windows-10-s
 - Default text editor: Use notepad++ or VScode instead of Vim
 
 ### GIT BASH:
+You can tell you are on a git repo if you have this (branchName)
+![image](https://user-images.githubusercontent.com/63453969/182826022-44ba6675-7934-49a7-b545-8a6316a3770c.png)
 
 ### CLONE
 git clone repositorylink.git  
