@@ -1,5 +1,7 @@
 # Microsoft tutorial
-https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio
+https://scribe.bus-hit.me/net-core/build-a-restful-web-api-with-asp-net-core-6-30747197e229
+
+Skip step creating database with migrations
 
 # Api controllers
 ```csharp
