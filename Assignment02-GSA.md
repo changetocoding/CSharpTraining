@@ -47,10 +47,9 @@ In GSA folder you will find a file "pnl.csv". Your task is to transform it into 
 Create a console app that:
 0. Import the Capitals
 
+1. Given a list of strategies returns a time series of monthly capital values for the strategies. You must support the abilty to specify more than 1 strategy.
 
-2. Given a list of strategies returns a time series of monthly capital values for the strategies.
-
-e.g. Command:
+Example Command: (Note multiple strategies can be specified)
 ```
 Capital "Strategy1,Strategy2"
 ```
@@ -61,16 +60,32 @@ strategy: Strategy2, date: 2017-01-01, capital: 2000
 ```
 
 2. Cumulative P&Ls
-Returns a daily time series of cumulative P&Ls aggregated by region
-e.g. Command:
+Returns a daily time series of cumulative P&Ls aggregated by *region*. The cumluative pnl is the sum of all the pnl upto that date in that region.  
+
+Example Command: (Note Region must be specified)
 ```
 cumulative-pnl EU
 ```
-Response
+Response assuming pnl is like this:
+Date | Pnl
+------------- | -------------
+2017-01-01 | 1000
+2017-01-02 | 1000
+2017-01-03 | 500
+2017-01-04 | 1000
+
 ```
+Cumulative Pnl for region EU
+
 date: 2017-01-01, cumulativePnl: 1000
-date: 2017-01-01, cumulativePnl: 2000
+date: 2017-01-02, cumulativePnl: 2000
+date: 2017-01-03, cumulativePnl: 2500
+date: 2017-01-04, cumulativePnl: 3500
+...
 ```
+
+
+
 
 Work together on the task. It may take longer than a week to complete
 
@@ -95,3 +110,6 @@ Your strategy class should now look more like this
         public ICollection<Pnl> Pnl { get; set; }
     }
 ```
+
+
+
