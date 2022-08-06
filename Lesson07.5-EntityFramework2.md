@@ -105,6 +105,7 @@ Find them annoying (don't mean with Lore). Leads to problems with lazy loading
                 return orders.Select(x => x.Customer).ToList();
             }
         }
+```
 
 ### Directly executing a query on db
 ```cs
