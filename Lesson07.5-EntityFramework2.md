@@ -63,6 +63,7 @@ Find them annoying (don't mean with Lore). Leads to problems with lazy loading
 
 ```
 ### Relationships when loading multiple rows
+```cs
         public List<Customer> GetCustomerForOrders(List<int> orderIds)
         {
             // Does 2 db queries. Most efficent way
