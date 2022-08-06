@@ -33,7 +33,43 @@ using (var db = new MyContextDB())
 
 ### Relationships aka related entities
 Find them annoying (don't mean with Lore). Leads to problems with lazy loading
+```cs
+// Other way to do it: Include
+        // Must add: using Microsoft.EntityFrameworkCore;
+        public Customer GetCustomerForOrder2(int orderId)
+        {
+            using (var db = new NorthwindContext())
+            {
+                var order = db.Orders
+                    .Include(o => o.Customer)
+                    .Include(o => o.Employee)
+                    .Where(x => x.OrderId == orderId)
+                    .Single()                    ;
+               
+                return order.Customer;
+            }
+        }
 
+        public OrderAddress GetOrderAddresses(int orderId)
+        {
+            using (var db = new NorthwindContext())
+            {
+                var order = db.Orders.Where(x => x.OrderId == orderId).Single();
+                // Translation step
+                var res = new OrderAddress()
+                {
+                    OrderId = orderId,
+                    ShipCountry = order.ShipCountry,
+                    ShipAddress = order.ShipAddress,
+                    ShipCity = order.ShipCity,
+                    ShipPostalCode = order.ShipPostalCode,
+                };
+               
+                return res;
+            }
+        }
+
+```
 
 ### Directly executing a query on db
 ```cs
