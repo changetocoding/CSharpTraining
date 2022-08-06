@@ -62,6 +62,48 @@ Find them annoying (don't mean with Lore). Leads to problems with lazy loading
         }
 
 ```
+### Relationships when loading multiple rows
+        public List<Customer> GetCustomerForOrders(List<int> orderIds)
+        {
+            // Does 2 db queries. Most efficent way
+            using (var db = new NorthwindContext())
+            {
+                var customers = db.Orders.Where(x => orderIds.Contains(x.OrderId))
+                    .Select(x => x.CustomerId).ToList();
+   
+                var customer = db.Customers.Where(x => customers.Contains(x.CustomerId)).ToList();
+                return customer;
+            }
+        }
+
+        // Other way to do it: Include
+        // Must add: using Microsoft.EntityFrameworkCore;
+        public List<Customer> GetCustomerForOrders2(List<int> orderIds)
+        {
+            // Nasty query: Less efficent
+            using (var db = new NorthwindContext())
+            {
+                var orders = db.Orders
+                    .Include(o => o.Customer)
+                    .Where(x => orderIds.Contains(x.OrderId));
+
+                return orders.Select(x => x.Customer).ToList();
+            }
+        }
+
+        public List<Customer> GetCustomerForOrders3(List<int> orderIds)
+        {
+            // More efficent
+            using (var db = new NorthwindContext())
+            {
+                // Use load instead of include
+                var orders = db.Orders
+                    .Where(x => orderIds.Contains(x.OrderId));
+                db.Customers.Load();
+
+                return orders.Select(x => x.Customer).ToList();
+            }
+        }
 
 ### Directly executing a query on db
 ```cs
