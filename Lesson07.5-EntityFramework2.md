@@ -50,22 +50,14 @@ Find them annoying (don't mean with Lore). Leads to problems with lazy loading
             }
         }
 
-        public OrderAddress GetOrderAddresses(int orderId)
+        public Customer GetCustomerForOrder(int orderId)
         {
             using (var db = new NorthwindContext())
             {
                 var order = db.Orders.Where(x => x.OrderId == orderId).Single();
-                // Translation step
-                var res = new OrderAddress()
-                {
-                    OrderId = orderId,
-                    ShipCountry = order.ShipCountry,
-                    ShipAddress = order.ShipAddress,
-                    ShipCity = order.ShipCity,
-                    ShipPostalCode = order.ShipPostalCode,
-                };
-               
-                return res;
+                var customerId = order.CustomerId;
+                var customer = db.Customers.Where(x => x.CustomerId == customerId).Single();
+                return customer;
             }
         }
 
