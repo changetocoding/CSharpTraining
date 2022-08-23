@@ -300,25 +300,25 @@ public class PersonWithName
 
 public class NameWithTitle
 {
-	public NameWithTitle(string firstName, string lastName, bool isMale)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		IsMale = isMale;
-	}
-
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public bool IsMale { get; set; }
-
-	public string NameAndTitle()
+    public NameWithTitle(string firstName, string lastName, bool isMale)
     {
-		var title = "Ms.";
+    	FirstName = firstName;
+    	LastName = lastName;
+    	IsMale = isMale;
+    }   
+    
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public bool IsMale { get; set; }
+
+    public string NameAndTitle()
+    {
+        var title = "Ms.";
         if (IsMale)
         {
-			title = "Mr.";
-		}
-		return $"{title} {FirstName} {LastName}";
+            title = "Mr.";
+        }
+        return $"{title} {FirstName} {LastName}";
     }
 }
 
@@ -326,8 +326,8 @@ public class Family
 {
     public Family()
     {
-		Members = new List<FamilyMember>();
-	}
+        Members = new List<FamilyMember>();
+    }
 
     public Family(string lastName, List<FamilyMember> members)
     {
@@ -336,21 +336,21 @@ public class Family
     }
 
     public string LastName { get; set; }
-	List<FamilyMember> Members { get; set; }
+    List<FamilyMember> Members { get; set; }
 }
 
 public class FamilyMember
 {
-	public FamilyMember(string firstName, int age, bool isMale)
-	{
-		FirstName = firstName;
-		Age = age;
-		Male = isMale;
-	}
+     public FamilyMember(string firstName, int age, bool isMale)
+     {
+     	FirstName = firstName;
+     	Age = age;
+     	Male = isMale;
+     }
 
-	public string FirstName { get; set; }
-	public int Age { get; set; }
-	public bool Male { get; set; }
+     public string FirstName { get; set; }
+     public int Age { get; set; }
+     public bool Male { get; set; }
 }
 
 ```
