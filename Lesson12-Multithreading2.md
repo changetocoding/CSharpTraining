@@ -340,11 +340,16 @@ You can remove any method that causes mutation, but you must retain that fuction
     // You cannot change this class: It is in an external library just provided you the code so you can see it.
     public class Name
     {
-        public Name(){}
+        public Name(Name name)
+        {
+            First = name.First;
+            Initials = name.Initials;
+            Last = name.Last;
+        }
 
         public Name(string name)
         {
-            var split= name.Split(" ");
+            var split = name.Split(" ");
             First = split[0];
             Initials = split[1];
             Last = split[2];
