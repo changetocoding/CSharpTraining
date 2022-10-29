@@ -278,6 +278,9 @@ class BankAccount {
     }
 }
 ```
+Answer is here: https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/october/concurrency-hazards-solving-problems-in-your-multithreaded-code
+Don't read until you've done the ex!
+
 2. Make this class immutable  
 You can remove any method that causes mutation, but you must retain that fuctionality (e.g if you remove UpdateDetails method, there must still be a way of setting the name and location, immutabily). All public properties must be available for reading.
 ```csharp
