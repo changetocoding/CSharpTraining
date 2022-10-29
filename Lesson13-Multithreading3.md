@@ -1,3 +1,8 @@
+
+Answer for last ex:
+https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/october/concurrency-hazards-solving-problems-in-your-multithreaded-code
+
+
 # Locking excerises
 
 ### 1. Tracker
