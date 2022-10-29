@@ -347,7 +347,7 @@ You can remove any method that causes mutation, but you must retain that fuction
             var split= name.Split(" ");
             First = split[0];
             Initials = split[1];
-            Last = split[3];
+            Last = split[2];
         }
 
         public string First { get; set; }
