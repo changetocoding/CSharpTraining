@@ -300,8 +300,8 @@ You can remove any method that causes mutation, but you must retain that fuction
             Location = location;
         }
 
-        public int Designation { get; } //removed the set
-        public string Location { get; } //removed the set
+        public int Designation { get; set; }
+        public string Location { get; set; }
     }
 ```
 
