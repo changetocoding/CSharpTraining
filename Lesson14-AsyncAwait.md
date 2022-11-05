@@ -125,3 +125,17 @@ public class ItProxy
 https://devblogs.microsoft.com/dotnet/configureawait-faq/
 
 ### Async Task vs Async void
+Always use Async Task as callers can await it. The only time to use Async void is when it is an event handler
+
+
+
+
+# Homework
+### Reading
+- https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+- https://learn.microsoft.com/en-us/dotnet/csharp/async
+
+### Practice
+In an existing project you talk to a database. Convert it to an async program:  
+Use SaveChangesAsync and ToListAsync  
+Async all the way!
