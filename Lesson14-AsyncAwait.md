@@ -25,11 +25,11 @@ public async Task Subscribe(string proposalUniqueId)
 ```
 ## Async teaching code
 ```cs
+// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
 var it = new Class1();
 await it.DoWork();
-
 
 
 internal class Class1
@@ -40,7 +40,8 @@ internal class Class1
         var task = this.Wait10();
         Console.WriteLine("Do some other work");
 
-        await task;
+        var res = await task;
+        Console.WriteLine("The task returned" + res);
     }
 
 
