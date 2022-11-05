@@ -123,6 +123,24 @@ public class ItProxy
 
 ### Configure await false
 https://devblogs.microsoft.com/dotnet/configureawait-faq/
+Tldr: always use `.ConfigureAwait(false);`
+
+```cs
+public class ItProxy
+{
+        public ItProxy(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
+        }
+
+        public async Task<CompanyProfile> GetInfo(string companyNo)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var uriBuilder = new UriBuilder(_urlCompanyInfo + companyNo);
+            return await client.GetFromJsonAsync<CompanyProfile>(uriBuilder.Uri).ConfigureAwait(false);
+        }
+}
+```
 
 ### Async Task vs Async void
 Always use Async Task as callers can await it. The only time to use Async void is when it is an event handler
