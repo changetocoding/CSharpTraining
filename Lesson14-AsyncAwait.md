@@ -14,14 +14,51 @@ Another Explaination: https://stackoverflow.com/questions/34680985/what-is-the-d
 - Db operations
 - Controllers
 
-
-## 
+## How to Async
 - Method that contains keyword _async_ and returns _Task_ or _Task_<_T>_
 - It must contain at least one await keyword
 ```cs
 public async Task Subscribe(string proposalUniqueId)
 {
     await SomeOtherAsyncMethod();
+}
+```
+## Async teaching code
+```cs
+Console.WriteLine("Hello, World!");
+
+var it = new Class1();
+await it.DoWork();
+
+
+
+internal class Class1
+{
+    public async Task DoWork()
+    {
+        Console.WriteLine("Start");
+        var task = this.Wait10();
+        Console.WriteLine("Do some other work");
+
+        await task;
+    }
+
+
+    public async Task<int> Wait10()
+    {
+        var res = 10;
+        Console.WriteLine("Pre wait");
+        //Thread.Sleep(5 * 1000);
+        //await Task.Delay(5 * 1000);
+        await Task.Run(() =>
+        {
+            Thread.Sleep(2 * 1000);
+            Console.WriteLine("Any task works");
+        });
+     
+        Console.WriteLine("Control returned");
+        return res;
+    } 
 }
 ```
 
@@ -84,5 +121,6 @@ public class ItProxy
 ### Async all the way concept
 
 ### Configure await false
+https://devblogs.microsoft.com/dotnet/configureawait-faq/
 
 ### Async Task vs Async void
