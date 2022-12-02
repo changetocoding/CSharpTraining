@@ -27,6 +27,10 @@ They are dev'd in parallel but there are big breaking changes between them. We w
 From .net6 forward you will need to use EFcore
 ## Project setup
 Create a db project with these libraries:
+```
+Microsoft.EntityFrameworkCore
+
+```
 ![image](https://user-images.githubusercontent.com/63453969/182610077-fae29d0d-08ad-4a4e-9277-f912de292d58.png)
 
 
