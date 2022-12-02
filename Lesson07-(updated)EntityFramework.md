@@ -26,7 +26,7 @@ They are dev'd in parallel but there are big breaking changes between them. We w
 
 From .net6 forward you will need to use EFcore
 ## Project setup
-Create a db project with these libraries:
+Create a db project with these libraries (Install the latest versions):
 ```
 Microsoft.EntityFrameworkCore
 Microsoft.EntityFrameworkCore.SqlServer
