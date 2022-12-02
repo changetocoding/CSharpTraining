@@ -29,7 +29,8 @@ From .net6 forward you will need to use EFcore
 Create a db project with these libraries:
 ```
 Microsoft.EntityFrameworkCore
-
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
 ```
 ![image](https://user-images.githubusercontent.com/63453969/182610077-fae29d0d-08ad-4a4e-9277-f912de292d58.png)
 
