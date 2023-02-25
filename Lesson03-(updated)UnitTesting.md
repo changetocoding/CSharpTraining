@@ -23,7 +23,15 @@ Act: You execute the test
 Assert: You check what you need to  
 
 ## Nunit
-Project setup
+### Add a new project
+![image](https://user-images.githubusercontent.com/63453969/221358708-f8fbc526-ac2b-4b1c-8212-e0bff7fe1948.png)
+
+Select class library   
+![image](https://user-images.githubusercontent.com/63453969/221358737-0f3abd80-3810-41e3-bb7c-6b374b8e444b.png)
+
+
+### Then Add dependencies for nunit
+
 ![image](https://user-images.githubusercontent.com/63453969/182658297-e364890f-de66-4439-8199-c5a4660462aa.png)
 Or update your csproj with
 ```
@@ -31,10 +39,14 @@ Or update your csproj with
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" version="4.1.0" />
-    <PackageReference Include="coverlet.collector" Version="3.1.0" />
-    <PackageReference Include="NUnit.Analyzers" Version="3.2.0" />
   </ItemGroup>
 ```
+
+### Finally add a reference to your main project
+![image](https://user-images.githubusercontent.com/63453969/221358642-23553d39-310e-433a-b10e-8e889f504e07.png)
+
+
+
 
 ## Your first test
 Imagine your class looked like this
@@ -131,6 +143,7 @@ namespace TestProject1
     }
 }
 ```
+
 
 # HW
 Follow these tutorials to learn Nunit. Commit your code to github
