@@ -240,7 +240,8 @@ public class Program
 		//3. write linq to convert the list of people to a dictionary keyed by first name
 
 
-		// 4. Write linq statement for first Person Older Than 40 In Descending Alphabetical Order By First Name
+		// 4. Write linq statement to get everyone over 40. We then want to award a prize to the person whos first name is last
+        // when you order those names alphabetically. Print that persons name
 		//Console.WriteLine("First Person Older Than 40 in Descending Order by First Name " + person2.ToString());
 
 		//5. write a linq statement that finds all the people who are part of a family. (aka there is at least one other person with the same surname.
