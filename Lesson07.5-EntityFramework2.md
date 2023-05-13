@@ -108,8 +108,17 @@ Find them annoying (don't mean with Lore). Leads to problems with lazy loading
 ```
 
 ### Directly executing a query on db
+https://learn.microsoft.com/en-us/ef/ef6/querying/raw-sql
 ```cs
-// See delete all rows in table
+
+using Microsoft.EntityFrameworkCore;
+
+var questions = db.Questions.FromSqlRaw("SELECT * FROM Questions").ToList();
+
+// or
+var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+
+context.Database.ExecuteSqlRaw("SQL");
 ```
 
 # Some tips from microsoft
