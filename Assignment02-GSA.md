@@ -126,22 +126,4 @@ Work together on the task. It may take longer than a week to complete
 # Part 3 - Save to db
 You task now is to save the pnl, capital and strategies (from properties.csv) into a relational database and table structure
 
-Your strategy class should now look more like this
-```cs
-    public partial class Strategy
-    {
-        public Strategy()
-        {
-            Capital = new HashSet<Capital>();
-            Pnl = new HashSet<Pnl>();
-        }
-
-        public int StrategyId { get; set; }
-        public string StratName { get; set; }
-        public string Region { get; set; }
-
-        public ICollection<Capital> Capital { get; set; }
-        public ICollection<Pnl> Pnl { get; set; }
-    }
-```
 
